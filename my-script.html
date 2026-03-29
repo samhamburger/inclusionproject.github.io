@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Script - Inclusion Project</title>
+
+  <!-- Poppins Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      background: #f7f7f7;
+    }
+
+    .staff-name {
+      color: #ec3072;
+    }
+
+    /* Header Banner */
+    .header {
+      background-color: #ec3072;
+      padding: 0;
+      text-align: center;
+      padding: 20px;
+      height: 13vh;
+    }
+
+    .header img {
+      width: auto;
+      height: 100%;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      padding: 20px 16px;
+      box-sizing: border-box;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Section Heading */
+    .section-heading {
+      font-size: 32px;
+      font-weight: 700;
+      color: #231e55;
+      text-transform: uppercase;
+      margin: 40px 0 20px 0;
+      text-align: center;
+    }
+
+    /* Content Block */
+    .content-block {
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+      line-height: 1.6;
+      color: #231e55;
+      font-size: 16px;
+    }
+
+    /* Sensory Rooms List */
+    .sensory-room {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      margin-bottom: 16px;
+      border-left: 6px solid #ec3072;
+    }
+
+    .sensory-room h3 {
+      margin: 0 0 10px 0;
+      color: #231e55;
+      font-size: 18px;
+    }
+
+    .sensory-room p {
+      margin: 0;
+      color: #231e55;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 600px) {
+      .section-heading {
+        font-size: 24px;
+      }
+
+      .content-block {
+        padding: 16px;
+        font-size: 14px;
+      }
+
+      .sensory-room {
+        padding: 16px;
+      }
+
+      .sensory-room h3 {
+        font-size: 16px;
+      }
+
+      .sensory-room p {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <img src="https://i.ibb.co/GfzT596N/Untitled-design-5.png" alt="My Script">
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+
+    <!-- My Script Section -->
+    <h2 class="section-heading">My Script</h2>
+    <div class="content-block">
+      <p id="script-text">"Hi, my name is (name) From the Inclusion Project, we are here to help patrons that may need assistance during the game. We also operate sensory friendly spaces at events. We have a sensory room located....."</p>
+    </div>
+
+    <!-- Sensory Rooms Section -->
+    <h2 class="section-heading">Sensory Rooms</h2>
+
+    <div class="sensory-room">
+      <h3>AAMI PARK</h3>
+      <p>Level 1 near Aisle 23</p>
+    </div>
+
+    <div class="sensory-room">
+      <h3>John Cain Arena</h3>
+      <p>Level 3 access via lift located at door 1</p>
+    </div>
+
+    <div class="sensory-room">
+      <h3>MCG</h3>
+      <p>Australian sports access museum via gate 3</p>
+    </div>
+
+    <!-- Helpful Tips Section -->
+    <h2 class="section-heading">Helpful Tips</h2>
+    <div class="content-block">
+      <p><strong>Look out for patrons wearing the sunflower lanyard</strong></p>
+      <p>Look out for those wearing ear muffs/ear defenders</p>
+      <p>These can help start a conversation!</p>
+      <p>If you get stuck remember you can always ask a Melbourne park employee (usually wearing blue)</p>
+    </div>
+
+  </div>
+
+  <script>
+    // Staff data
+    const staff = [
+      {
+        "name": "Sam",
+        "script": "Hi, my name is Sam, I'm here to help you today. Some more helpful information test test"
+      },
+        {
+            "name": "Alex",
+            "script": "Hi, my name is Alex, I'm here to assist you. Some more helpful information test test"
+        },
+        {
+            "name": "Jamie",
+            "script": "Hi, my name is Jamie, I'm here to support you. Some more helpful information test test"
+        }
+    ];
+
+    // Get URL parameters
+    const params = new URLSearchParams(window.location.search);
+    const staffName = params.get('name');
+
+    // Load staff data if name parameter is provided
+    if (staffName) {
+      const member = staff.find(s => s.name.toLowerCase() === staffName.toLowerCase());
+      if (member) {
+        document.getElementById('script-text').textContent = `"${member.script}"`;
+      }
+    }
+  </script>
+
+</body>
+</html>
