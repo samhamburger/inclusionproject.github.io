@@ -22,15 +22,38 @@
     /* Header Banner */
     .header {
       background-color: #ec3072;
-      padding: 0;
       text-align: center;
       padding: 20px;
       height: 13vh;
+      position: relative;
     }
 
     .header img {
       width: auto;
       height: 100%;
+    }
+
+    /* Home Button (FINAL STYLE) */
+    .home-btn {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #ffffff;
+      color: #231e55;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: 'Poppins', Arial, sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+    }
+
+    .home-btn:hover {
+      background: #231e55;
+      color: #ffffff;
     }
 
     /* Container */
@@ -109,6 +132,11 @@
       .sensory-room p {
         font-size: 12px;
       }
+
+      .home-btn {
+        font-size: 12px;
+        padding: 8px 12px;
+      }
     }
   </style>
 </head>
@@ -117,6 +145,7 @@
 
   <!-- Header -->
   <div class="header">
+    <a href="index.html" class="home-btn">Home</a>
     <img src="img/script_icon.png" alt="My Script">
   </div>
 
@@ -159,27 +188,15 @@
   </div>
 
   <script>
-    // Staff data
     const staff = [
-      {
-        "name": "Sam",
-        "script": "Hi, my name is Sam, I'm here to help you today. Some more helpful information test test"
-      },
-        {
-            "name": "Alex",
-            "script": "Hi, my name is Alex, I'm here to assist you. Some more helpful information test test"
-        },
-        {
-            "name": "Jamie",
-            "script": "Hi, my name is Jamie, I'm here to support you. Some more helpful information test test"
-        }
+      { "name": "Sam", "script": "Hi, my name is Sam, I'm here to help you today. Some more helpful information test test" },
+      { "name": "Alex", "script": "Hi, my name is Alex, I'm here to assist you. Some more helpful information test test" },
+      { "name": "Jamie", "script": "Hi, my name is Jamie, I'm here to support you. Some more helpful information test test" }
     ];
 
-    // Get URL parameters
     const params = new URLSearchParams(window.location.search);
     const staffName = params.get('name');
 
-    // Load staff data if name parameter is provided
     if (staffName) {
       const member = staff.find(s => s.name.toLowerCase() === staffName.toLowerCase());
       if (member) {
